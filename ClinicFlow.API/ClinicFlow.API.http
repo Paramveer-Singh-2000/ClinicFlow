@@ -1,6 +1,0 @@
-@ClinicFlow.API_HostAddress = http://localhost:5274
-
-GET {{ClinicFlow.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
