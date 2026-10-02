@@ -1,0 +1,30 @@
+@host = http://localhost:5274
+
+### Health
+GET {{host}}/health
+
+### Dentists
+GET {{host}}/api/dentists
+
+### Slots
+GET {{host}}/api/slots?date=2026-08-31&type=Cleaning&dentistId=1
+
+### Chat — first turn
+POST {{host}}/api/chat
+Content-Type: application/json
+
+{
+  "message": "Hi, can I get a cleaning next Tuesday afternoon?"
+}
+
+### Chat — follow-up (paste history from the response above)
+POST {{host}}/api/chat
+Content-Type: application/json
+
+{
+  "message": "2pm works. My name is Param Singh, phone 805-555-0123",
+  "history": [{
+      "role": "user",
+      "content": "Hi, can I get a cleaning next Tuesday afternoon?"
+    }]
+}

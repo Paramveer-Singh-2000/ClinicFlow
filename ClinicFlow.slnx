@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="ClinicFlow.Api/ClinicFlow.Api.csproj" DisplayName="ClinicFlow.API" Id="5278438c-c648-4b89-9be9-24be83bb719a" />
+  <Project Path="ClinicFlow.Api/ClinicFlow.Api.csproj" Id="5278438c-c648-4b89-9be9-24be83bb719a" />
   <Project Path="ClinicFlow.Tests/ClinicFlow.Tests.csproj" Id="234a05e3-3a02-4972-941d-a4218eeb2d48" />
 </Solution>
