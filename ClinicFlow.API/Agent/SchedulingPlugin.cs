@@ -129,7 +129,7 @@ namespace ClinicFlow.API.Agent
             return string.Join("\n", lines);
         }
 
-        git add ClinicFlow.API / Program.cs[Description("Cancels an appointment. Requires both the appointment ID and the phone number " +
+        [Description("Cancels an appointment. Requires both the appointment ID and the phone number " +
                  "it was booked under — the phone number must match or the cancellation is refused. " +
                  "Confirm with the patient before calling this.")]
         public async Task<string> CancelAppointmentAsync(
