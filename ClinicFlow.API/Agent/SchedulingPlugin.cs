@@ -110,7 +110,6 @@ namespace ClinicFlow.API.Agent
 
             return result.Message;
         }
-        [KernelFunction("find_appointments")]
         [Description("Looks up a patient's upcoming appointments by phone number. " +
                  "Use before cancelling, so you know the appointment ID.")]
         public async Task<string> FindAppointmentsAsync(
@@ -130,7 +129,6 @@ namespace ClinicFlow.API.Agent
             return string.Join("\n", lines);
         }
 
-        [KernelFunction("cancel_appointment")]
         [Description("Cancels an appointment. Requires both the appointment ID and the phone number " +
                  "it was booked under — the phone number must match or the cancellation is refused. " +
                  "Confirm with the patient before calling this.")]

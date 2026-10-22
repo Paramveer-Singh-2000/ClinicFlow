@@ -136,25 +136,6 @@ app.MapPost("/api/appointments", async (
         : Results.BadRequest(result);
 });
 
-app.MapGet("/api/appointments", async (
-    string phone,
-    SchedulingService scheduling,
-    CancellationToken ct) =>
-{
-    var found = await scheduling.FindByPhoneAsync(phone, ct);
-    return Results.Ok(found);
-});
-
-app.MapDelete("/api/appointments/{id:int}", async (
-    int id,
-    string phone,
-    SchedulingService scheduling,
-    CancellationToken ct) =>
-{
-    var result = await scheduling.CancelAsync(id, phone, ct);
-    return result.Success ? Results.Ok(result) : Results.BadRequest(result);
-});
-
 app.Run();
 
 record BookRequest(

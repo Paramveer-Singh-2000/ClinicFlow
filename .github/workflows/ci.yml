@@ -2,27 +2,32 @@
 
 on:
   push:
-    branches: [ main ]
+    branches: [master]
   pull_request:
-    branches: [ main ]
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up .NET
+      - name: Set up .NET 10
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
 
-      - name: Restore
-        run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore ClinicFlow.slnx
 
-      - name: Build
-        run: dotnet build --no-restore --configuration Release
+      - name: Build solution
+        run: dotnet build ClinicFlow.slnx --no-restore --configuration Release
 
-      - name: Test
-        run: dotnet test --no-build --configuration Release --verbosity normal
+      - name: Run tests
+        run: dotnet test ClinicFlow.Tests/ClinicFlow.Tests.csproj --configuration Release --no-build --verbosity normal
